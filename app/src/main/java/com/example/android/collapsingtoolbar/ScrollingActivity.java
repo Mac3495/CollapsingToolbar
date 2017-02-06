@@ -1,5 +1,6 @@
 package com.example.android.collapsingtoolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -26,8 +27,14 @@ public class ScrollingActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Snackbar snackbar = Snackbar.make(view, "Aplicacion en construccion", Snackbar.LENGTH_LONG)
+                        .setAction("Volver", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                            }
+                        });
+                snackbar.show();
             }
         });
     }
